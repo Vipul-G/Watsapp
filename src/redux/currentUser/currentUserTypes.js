@@ -1,0 +1,6 @@
+// export const USER_AUTH_REQUEST = 'USER_AUTH_REQUEST'
+// export const USER_AUTH_SUCCESS = 'USER_AUTH_SUCCESS'
+// export const USER_AUTH_FAILURE = 'USER_AUTH_FAILURE'
+// export const USER_SIGN_OUT = 'USER_SIGN_OUT'
+
+export const SET_CURRENT_USER = 'SET_CURRENT_USER'

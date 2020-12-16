@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import Sidebar from './Sidebar';
+import Chat from './Chat';
+import {SocketProvider} from './context/SocketContext';
+import { fetchChats } from './redux'
+import {connect} from 'react-redux'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const mapStateToProps = (state) => {
+    return {
+        currentUser: state.currentUserState.currentUser
+    }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+	return {
+        fetchChats: (currentUser) => dispatch(fetchChats(currentUser))
+	}
+}
+
+function App({ currentUser, fetchChats }) {
+
+    fetchChats(currentUser)
+  
+    return (
+        <SocketProvider id={currentUser.email}>
+            <div className="app">
+                <div className="app__body"> 
+                    <Sidebar />
+                    {currentUser && <Chat />}
+                </div>
+            </div> 
+        </SocketProvider>
+    )
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
