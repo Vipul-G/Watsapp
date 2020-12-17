@@ -22,7 +22,6 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
     "redux": "^4.0.5",
-    "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "socket.io": "^3.0.1",
@@ -31,7 +30,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start:server": "node server/app.js",
+    "server": "node server/app.js",
+    "server:watch": "nodemon server/app.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -65,6 +65,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "redux-devtools-extension": "^2.13.8"
   }
 }

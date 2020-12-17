@@ -9,6 +9,7 @@ route.get('/:userEmail/recipients', async (req, res, next) => {
     const { userEmail } = req.params;
     try {
         const recipients = await User.find({ email: { $ne: userEmail} });
+        console.log({recipients})
         res.status(200).json(recipients);
     } catch (err) {
         next(err);
@@ -18,7 +19,6 @@ route.get('/:userEmail/recipients', async (req, res, next) => {
 // get all chats of a user
 route.get('/users/:userEmail/chat', (req, res, next) => {
     const {userEmail} = req.params;
-   
     if(!userEmail) {
        return res.status(400).send('Unable to fetch messages');
     }

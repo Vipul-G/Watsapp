@@ -1,13 +1,13 @@
 import React from 'react'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/auth'
 import { setCurrentUser } from '../redux'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import axios from '../axios'
 
 // firebase config
-let app;
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -19,12 +19,10 @@ const firebaseConfig = {
 };
 
 if (!firebase.apps.length) {
-  app = firebase.initializeApp(firebaseConfig)
-} else {
-  app = firebase.app()
+    firebase.initializeApp(firebaseConfig)
 }
 
-export const auth = app.auth();
+export const auth = firebase.app().auth();
 
 // Configure FirebaseUI.
 const uiConfig = {
@@ -66,7 +64,6 @@ function FirebaseSignIn({ setCurrentUser}) {
   React.useEffect(() => {
     // setLoading(true)
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      console.log({user})
       if (user) {
         const authUser = {
           name: user.displayName,

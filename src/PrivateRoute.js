@@ -9,7 +9,6 @@ const mapStateToProps = (state) => {
 }
 
 function PrivateRoute({app: App, currentUser, ...rest}) {
-    console.log('PrivateRoute', {currentUser})
     return (
         <Route
         {...rest}

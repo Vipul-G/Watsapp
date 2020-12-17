@@ -33,7 +33,6 @@ export const fetchRecipients = (currentUser) => {
     axios.get(`/${userEmail}/recipients`)
     .then(response => {
       const recipients = response.data
-      console.log({recipients})
       dispatch(fetchRecipientsSuccess(recipients))
     })
     .catch(error => {
