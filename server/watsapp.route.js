@@ -9,7 +9,6 @@ route.get('/:userEmail/recipients', async (req, res, next) => {
     const { userEmail } = req.params;
     try {
         const recipients = await User.find({ email: { $ne: userEmail} });
-        console.log({recipients})
         res.status(200).json(recipients);
     } catch (err) {
         next(err);
@@ -82,7 +81,6 @@ route.post('/chats', (req, res, next) => {
 // save user in db
 route.post('/users', (req, res, next) => {
     const user = req.body;
-    console.log({user});
 
     User.updateOne({email: user.email}, user, {upsert: true})
     .then((data) => res.status(201).send(`new user created: ${data}`))

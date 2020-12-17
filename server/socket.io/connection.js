@@ -13,7 +13,7 @@ const socketConnection = (server) => {
 
   io.on('connection', (socket) => {
     realtime(socket);
-    console.log('React connection established');
+    // console.log('React connection established');
     
     // client unique id
     const id = socket.handshake.query.id;
@@ -22,7 +22,7 @@ const socketConnection = (server) => {
     socket.join(id); 
 
     socket.on('send-message', (msgDetails, callback) => {
-        console.log('[send-message]', {msgDetails});
+        // console.log('[send-message]', {msgDetails});
         
         createChat(msgDetails)
         .then((data) => {callback(data)})
