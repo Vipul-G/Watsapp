@@ -27,7 +27,7 @@ app.use((req, res, next) => {
 });
 
 // secure application
-// app.use(helmet())
+app.use(helmet())
 
 // api routes
 app.use('/api/v1', watsappRoutes);

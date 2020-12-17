@@ -1,6 +1,8 @@
 {
   "name": "watsaap",
   "version": "0.1.0",
+  "main": "server/app.js",
+  "description": "Watsapp clone",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.0",
@@ -29,8 +31,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "server": "node server/app.js",
+    "start": "node server/app.js",
     "server:watch": "nodemon server/app.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -67,5 +68,9 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.1.2",
     "redux-devtools-extension": "^2.13.8"
+  },
+  "author": "Vipul Gautam",
+  "engines": {
+    "node": "14.15.x"
   }
 }
