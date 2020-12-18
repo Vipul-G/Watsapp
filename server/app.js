@@ -5,10 +5,12 @@ const app = express();
 const http = require('http').Server(app)
 const {socketConnection} = require('./socket.io/connection')
 const path = require('path')
-
+const cors = require('cors')
+const { PORT } = require('./config');
+ 
 const io = socketConnection(http)
 
-const port = process.env.PORT || 9000;
+const port = PORT || 9000;
 const dbConnect = require('./db'); 
 
 //get build folder
@@ -20,11 +22,7 @@ app.use(express.static(buildDir));
 //middlewares
 app.use(express.json());
 
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', '*');
-    next();
-});
+app.use(cors());
 
 // secure application
 app.use(helmet())

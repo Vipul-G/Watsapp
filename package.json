@@ -12,6 +12,8 @@
     "@testing-library/react": "^11.1.1",
     "@testing-library/user-event": "^12.2.0",
     "axios": "^0.21.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "firebase": "^8.0.1",
     "helmet": "^4.2.0",
@@ -32,6 +34,7 @@
   },
   "scripts": {
     "start": "node server/app.js",
+    "start:dev": "react-scripts start",
     "server:watch": "nodemon server/app.js",
     "build": "react-scripts build",
     "test": "react-scripts test",

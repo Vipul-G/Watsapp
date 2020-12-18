@@ -7,7 +7,7 @@ const socketio = (server, options) => {
 
 const socketConnection = (server) => {
   const io = socketio(server, { cors: {
-    origin: "http://localhost:3000",
+    origin: "*",
     methods: ["GET", "POST"]
   } });
 
